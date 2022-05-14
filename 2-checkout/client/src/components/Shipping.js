@@ -25,12 +25,12 @@ export default class Shipping extends Component {
   handleClick() {
     axios.post('/userInfo', this.state.userInfo)
       .then(response => this.props.changePage('payment'))
-      .catch(err => alert('Invalid info') )
+      .catch(err => alert('Invalid info'))
   }
 
   handleChange(e) {
     this.setState({
-      userInfo: {...this.state.userInfo, [name]: e.target.value }
+      userInfo: {...this.state.userInfo, [e.target.name]: e.target.value }
     })
   }
 
