@@ -11,8 +11,7 @@ module.exports = {
 
   signup: (req, res) => {
     let parsedSession = JSON.parse(req.session_id)
-    console.log(parsedSession)
-    console.log(req.body)
+    
     let params = [req.body.username, req.body.password, parsedSession.session_id]
 
     db.queryAsync('insert into users(username, password, session) values(?, ?, ?)', params)

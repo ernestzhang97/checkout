@@ -15,7 +15,7 @@ export default class Shipping extends Component {
     super(props)
 
     this.state = {
-      userInfo: {address: '', city: '', state: '', zip: '', phone: ''},
+      userInfo: {address1: '', city: '', state: '', zip: '', phone: ''},
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -30,7 +30,7 @@ export default class Shipping extends Component {
 
   handleChange(e) {
     this.setState({
-      userInfo: {...this.state.userInfo, [e.target.name]: e.target.value }
+      userInfo: {...this.state.userInfo, [name]: e.target.value }
     })
   }
 
@@ -42,16 +42,8 @@ export default class Shipping extends Component {
             <InputStyle
               type="text"
               name="address"
-              value={this.state.userInfo.address}
+              value={this.state.userInfo.address1}
               onChange={this.handleChange}
-              placeholder="Address Line 1"
-            />
-            <InputStyle
-              type="text"
-              name="address"
-              value={this.state.userInfo.address}
-              onChange={this.handleChange}
-              placeholder="Address Line 2"
             />
           <LabelStyle>City</LabelStyle>
             <InputStyle
