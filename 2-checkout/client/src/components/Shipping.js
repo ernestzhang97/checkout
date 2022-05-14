@@ -42,7 +42,7 @@ export default class Shipping extends Component {
             <InputStyle
               type="text"
               name="address"
-              value={this.state.userInfo.address1}
+              value={this.state.userInfo.address}
               onChange={this.handleChange}
             />
           <LabelStyle>City</LabelStyle>
