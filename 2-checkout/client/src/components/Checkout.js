@@ -62,13 +62,13 @@ export default class Checkout extends Component {
   componentDidMount() {
     axios.get('/summary')
       .then((response) => this.setState({ summary: response.data}))
-      .catch(err => console.log(err))
+      .catch(err => alert('Could not submit'))
   }
 
   handleClick() {
     axios.post('/updateCookie', {form: this.state.form})
       .then(response => this.props.changePage('submitted'))
-      .catch(err => console.log(err))
+      .catch(err => alert('Did not update'))
   }
 
   render() {

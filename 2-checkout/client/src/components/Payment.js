@@ -31,7 +31,7 @@ export default class Payment extends Component {
   handleClick() {
     axios.post('/payment', this.state.payment)
       .then(response => this.props.changePage('checkout'))
-      .catch(err => console.log(err))
+      .catch(err => alert('Invalid payment'))
   }
 
   render() {

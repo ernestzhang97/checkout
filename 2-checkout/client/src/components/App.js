@@ -25,7 +25,7 @@ export default class App extends Component {
     super(props)
 
     this.state = {
-      page: 'submitted'
+      page: 'login'
     }
 
     this.changePage = this.changePage.bind(this)

@@ -25,7 +25,7 @@ export default class Shipping extends Component {
   handleClick() {
     axios.post('/userInfo', this.state.userInfo)
       .then(response => this.props.changePage('payment'))
-      .catch(err => console.log(err) )
+      .catch(err => alert('Invalid info') )
   }
 
   handleChange(e) {

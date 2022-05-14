@@ -55,11 +55,11 @@ export default class Home extends Component {
           .then((response) => {
             response.data.length ? this.props.changePage('shipping') : this.props.changePage('signup')
           })
-          .catch(err => console.log(err))
+          .catch(err => alert('Invalid Login'))
       } else if (this.props.page == 'signup') {
         axios.post('/signup', this.state.user)
           .then(() => this.props.changePage('shipping'))
-          .catch(err => console.log(err))
+          .catch(err => alert('Invalid Signup'))
       }
     } else {
       alert('Session already completed')
