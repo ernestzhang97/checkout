@@ -3,12 +3,15 @@ const express = require("express");
 const path = require("path");
 const sessionHandler = require("./middleware/session-handler");
 const logger = require("./middleware/logger");
+const controller = require('./controllers')
 
 // Establishes connection to the database on server start
 const db = require("./db");
 
 const app = express();
 
+express.urlencoded({ extended: true })
+app.use(express.json())
 // Adds `req.session_id` based on the incoming cookie value.
 // Generates a new session if one does not exist.
 app.use(sessionHandler);
@@ -19,13 +22,19 @@ app.use(logger);
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-/**** 
- * 
- * 
- * Other routes here....
- *
- * 
- */
+app.post('/signup', controller.userAuth.signup)
 
-app.listen(process.env.PORT);
-console.log(`Listening at http://localhost:${process.env.PORT}`);
+app.get('/login', controller.userAuth.login)
+
+app.post('/userInfo', controller.forms.postUserInfo)
+
+app.post('/payment', controller.forms.postPayment)
+
+app.get('/summary', controller.forms.grabSummary)
+
+app.post('/updateCookie', (req, res) => {
+  res.status(201).json('Just needed to update the cookie')
+})
+
+app.listen(process.env.PORT, () => console.log(`Listening at http://localhost:${process.env.PORT}`));
+

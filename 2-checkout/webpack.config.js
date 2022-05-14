@@ -19,6 +19,14 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(png|jpe?g|jpg)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
+      }
     ],
   },
 };
